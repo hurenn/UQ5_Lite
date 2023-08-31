@@ -3,6 +3,8 @@
 
 #include "CPPHelloWorld.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetStringLibrary.h"
 
 // Sets default values
 ACPPHelloWorld::ACPPHelloWorld()
@@ -29,6 +31,16 @@ void ACPPHelloWorld::BeginPlay()
 
 	// Viewportの左上に文字列を出力する関数
 	//GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::White, "C++ Goodnight World", true, FVector2D(2.0f, 2.0f));
+
+	int calA = 7;
+	int calB = 3;
+
+	// ノードを利用する計算
+	int result = UKismetMathLibrary::Add_IntInt(calA, calB);
+	FString resultStr = UKismetStringLibrary::Conv_IntToString(result);
+	UKismetSystemLibrary::PrintString(
+		this, resultStr, true, true, FColor::Red, 2.0f, TEXT("None")
+	);
 }
 
 // Called every frame
