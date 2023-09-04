@@ -26,6 +26,13 @@ public:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UPointLightComponent> PointLight;
 
+	UPROPERTY(EditAnywhere, Category = "Point Light")
+		bool bIsVisible = false;
+	UPROPERTY(EditAnywhere, Category = "Point Light")
+		float Intensity = 5000.0f;
+	UPROPERTY(EditAnywhere, Category = "Point Light")
+		FLinearColor LightColor = FLinearColor::White;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
