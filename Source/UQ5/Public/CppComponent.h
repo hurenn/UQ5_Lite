@@ -37,6 +37,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -47,5 +49,6 @@ public:
 private:
 	const float Duration = 10.0f;
 	const FLinearColor TextColor = FLinearColor(0.0, 0.66, 1.0);
+	int hp = 0;
 
 };

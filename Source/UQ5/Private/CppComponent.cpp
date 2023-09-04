@@ -2,10 +2,13 @@
 
 
 #include "CppComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values
 ACppComponent::ACppComponent()
 {
+	hp = 100;
+
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -40,11 +43,17 @@ ACppComponent::ACppComponent()
 	PointLight->SetupAttachment(StaticMesh);
 }
 
+void ACppComponent::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+	UKismetSystemLibrary::PrintString(this, TEXT("EndPlay"), true, true, FColor::Cyan, 2.f);
+}
+
 // Called when the game starts or when spawned
 void ACppComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// hpèoóÕ
+	UKismetSystemLibrary::PrintString(this, FString::Printf(TEXT("%d"), hp), true, true, FColor::Cyan, 2.f, TEXT("None"));
 }
 
 // Called every frame
