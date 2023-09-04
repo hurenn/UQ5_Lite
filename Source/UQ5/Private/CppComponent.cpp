@@ -41,6 +41,9 @@ ACppComponent::ACppComponent()
 	PointLight->SetRelativeLocation(FVector(130.0f, 0.0f, 0.0f));
 
 	PointLight->SetupAttachment(StaticMesh);
+
+	SetPoint(100);
+	UKismetSystemLibrary::PrintString(this, FString::Printf(TEXT("Point:%d"), GetPoint()), true, true, FColor::Cyan, 5.f);
 }
 
 void ACppComponent::EndPlay(const EEndPlayReason::Type EndPlayReason) {
@@ -68,4 +71,12 @@ void ACppComponent::Tick(float DeltaTime)
 void ACppComponent::CallParentFunc() {
 	FString name = UKismetSystemLibrary::GetDisplayName(this);
 	UKismetSystemLibrary::PrintString(this, FString::Printf(TEXT("%s : CallParentFunc %d"), *name, VarParentNum), true, true, FColor::Cyan, 2.f, TEXT("None"));
+}
+
+void ACppComponent::SetPoint(int myPoint) {
+	point = myPoint;
+}
+
+int ACppComponent::GetPoint() {
+	return point;
 }

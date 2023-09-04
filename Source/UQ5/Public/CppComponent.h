@@ -39,6 +39,8 @@ protected:
 
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
+	int point;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -48,6 +50,10 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category=CPP_And_Blueprint)
 	void CallParentFunc();
+
+	// アクセサ
+	void SetPoint(int myPoint);
+	int GetPoint();
 
 private:
 	const float Duration = 10.0f;
