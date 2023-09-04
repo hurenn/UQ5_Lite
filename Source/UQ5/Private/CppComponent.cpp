@@ -50,6 +50,8 @@ void ACppComponent::EndPlay(const EEndPlayReason::Type EndPlayReason) {
 // Called when the game starts or when spawned
 void ACppComponent::BeginPlay()
 {
+	// Note:継承されたとき、動的に呼ばれなくても実行される
+
 	Super::BeginPlay();
 
 	// hp出力
@@ -63,3 +65,7 @@ void ACppComponent::Tick(float DeltaTime)
 
 }
 
+void ACppComponent::CallParentFunc() {
+	FString name = UKismetSystemLibrary::GetDisplayName(this);
+	UKismetSystemLibrary::PrintString(this, FString::Printf(TEXT("%s : CallParentFunc %d"), *name, VarParentNum), true, true, FColor::Cyan, 2.f, TEXT("None"));
+}
