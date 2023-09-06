@@ -2,6 +2,7 @@
 
 
 #include "CPPAbstractBPParent.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values
 ACPPAbstractBPParent::ACPPAbstractBPParent()
@@ -22,7 +23,7 @@ void ACPPAbstractBPParent::BeginPlay()
 
 void ACPPAbstractBPParent::Greeting_Implementation()
 {
-
+	UKismetSystemLibrary::PrintString(this, GreetingMessage, true, true, FColor::Green, 5.f, TEXT("None"));
 }
 
 // Called every frame
